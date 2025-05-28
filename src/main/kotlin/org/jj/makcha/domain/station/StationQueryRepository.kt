@@ -6,4 +6,6 @@ interface StationQueryRepository {
         line: String?,
         query: String?
     ): List<Station>
+
+    fun findAllNames(): Set<String>
 }

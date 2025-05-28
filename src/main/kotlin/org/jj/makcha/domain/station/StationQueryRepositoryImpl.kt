@@ -18,4 +18,11 @@ class StationQueryRepositoryImpl(
                 )
         }.filterNotNull()
     }
+
+    override fun findAllNames(): Set<String> {
+        return executor.findAll {
+            select(path(Station::name))
+                .from(entity(Station::class))
+        }.filterNotNull().toSet()
+    }
 }
